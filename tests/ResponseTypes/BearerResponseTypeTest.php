@@ -3,6 +3,7 @@
 namespace LeagueTests\ResponseTypes;
 
 use League\OAuth2\Server\AccessTokenToJwtConverter;
+use League\OAuth2\Server\BearerWasValidated;
 use League\OAuth2\Server\Entities\AccessTokenEntity;
 use League\OAuth2\Server\Exception\OAuthServerException;
 use League\OAuth2\Server\Jwt\BearerTokenResponse;
@@ -79,6 +80,12 @@ class BearerResponseTypeTest extends \PHPUnit_Framework_TestCase
         $authorizationValidator = new BearerTokenValidator(
             $accessTokenRepositoryMock,
             'file://' . __DIR__ . '/../Stubs/public.key'
+        );
+        $authorizationValidator->addListener(
+            'validated',
+            function (BearerWasValidated $event) use ($accessToken) {
+                $this->assertEquals($accessToken->getIdentifier(), $event->getToken()->getClaim('jti'));
+            }
         );
 
         $request = new ServerRequest();

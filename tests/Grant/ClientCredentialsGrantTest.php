@@ -3,6 +3,7 @@
 namespace LeagueTests\Grant;
 
 use League\OAuth2\Server\AccessTokenToJwtConverter;
+use League\OAuth2\Server\Entities\AccessTokenEntity;
 use League\OAuth2\Server\Grant\ClientCredentialsGrant;
 use League\OAuth2\Server\Jwt\BearerTokenResponse;
 use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;
@@ -29,6 +30,7 @@ class ClientCredentialsGrantTest extends \PHPUnit_Framework_TestCase
         $clientRepositoryMock->method('getClientEntity')->willReturn($client);
 
         $accessTokenRepositoryMock = $this->getMockBuilder(AccessTokenRepositoryInterface::class)->getMock();
+        $accessTokenRepositoryMock->method('createNewToken')->willReturn(new AccessTokenEntity());
         $accessTokenRepositoryMock->method('persistNewAccessToken')->willReturnSelf();
 
         $scopeRepositoryMock = $this->getMockBuilder(ScopeRepositoryInterface::class)->getMock();

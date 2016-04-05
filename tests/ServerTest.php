@@ -3,6 +3,7 @@
 namespace LeagueTests;
 
 use League\OAuth2\Server\AccessTokenToJwtConverter;
+use League\OAuth2\Server\Entities\AccessTokenEntity;
 use League\OAuth2\Server\Exception\OAuthServerException;
 use League\OAuth2\Server\Grant\AuthCodeGrant;
 use League\OAuth2\Server\Grant\ClientCredentialsGrant;
@@ -59,9 +60,12 @@ class ServerTest extends \PHPUnit_Framework_TestCase
         $scopeRepositoryMock = $this->getMockBuilder(ScopeRepositoryInterface::class)->getMock();
         $scopeRepositoryMock->method('finalizeScopes')->willReturnArgument(0);
 
+        $accessTokenRepositoryMock = $this->getMock(AccessTokenRepositoryInterface::class);
+        $accessTokenRepositoryMock->method('createNewToken')->willReturn(new AccessTokenEntity());
+
         $server = new Server(
             $clientRepository,
-            $this->getMock(AccessTokenRepositoryInterface::class),
+            $accessTokenRepositoryMock,
             $scopeRepositoryMock,
             new ResponseFactory(
                 new AccessTokenToJwtConverter('file://' . __DIR__ . '/Stubs/private.key'),

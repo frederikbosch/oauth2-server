@@ -246,6 +246,7 @@ class AbstractGrantTest extends \PHPUnit_Framework_TestCase
     public function testIssueAccessToken()
     {
         $accessTokenRepoMock = $this->getMock(AccessTokenRepositoryInterface::class);
+        $accessTokenRepoMock->method('createNewToken')->willReturn(new AccessTokenEntity());
 
         /** @var AbstractGrant $grantMock */
         $grantMock = $this->getMockForAbstractClass(AbstractGrant::class);
