@@ -2,9 +2,9 @@
 
 namespace LeagueTests\Middleware;
 
-use League\OAuth2\Server\AccessTokenToJwtConverter;
 use League\OAuth2\Server\Entities\AccessTokenEntity;
 use League\OAuth2\Server\Grant\ClientCredentialsGrant;
+use League\OAuth2\Server\Jwt\AccessTokenToJwtConverter;
 use League\OAuth2\Server\Jwt\BearerTokenValidator;
 use League\OAuth2\Server\Middleware\AuthenticationServerMiddleware;
 use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;

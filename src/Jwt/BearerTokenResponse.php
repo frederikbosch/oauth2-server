@@ -10,7 +10,6 @@
  */
 namespace League\OAuth2\Server\Jwt;
 
-use League\OAuth2\Server\AccessTokenToJwtConverter;
 use League\OAuth2\Server\Entities\Interfaces\AccessTokenEntityInterface;
 use League\OAuth2\Server\ResponseTypes\Dto\EncryptedRefreshToken;
 use League\OAuth2\Server\ResponseTypes\ResponseTypeInterface;
@@ -27,17 +26,17 @@ class BearerTokenResponse implements ResponseTypeInterface
      */
     protected $refreshToken;
     /**
-     * @var AccessTokenToJwtConverter
+     * @var AccessTokenToJwtConverterInterface
      */
     private $accessTokenToJwtConverter;
 
     /**
-     * @param AccessTokenToJwtConverter  $accessTokenToJwtConverter
+     * @param AccessTokenToJwtConverterInterface  $accessTokenToJwtConverter
      * @param AccessTokenEntityInterface $accessToken
      * @param EncryptedRefreshToken      $refreshToken
      */
     public function __construct(
-        AccessTokenToJwtConverter $accessTokenToJwtConverter,
+        AccessTokenToJwtConverterInterface $accessTokenToJwtConverter,
         AccessTokenEntityInterface $accessToken,
         EncryptedRefreshToken $refreshToken = null
     ) {

@@ -2,10 +2,10 @@
 
 namespace LeagueTests\Grant;
 
-use League\OAuth2\Server\AccessTokenToJwtConverter;
 use League\OAuth2\Server\Entities\AccessTokenEntity;
 use League\OAuth2\Server\Exception\OAuthServerException;
 use League\OAuth2\Server\Grant\ImplicitGrant;
+use League\OAuth2\Server\Jwt\AccessTokenToJwtConverter;
 use League\OAuth2\Server\Jwt\BearerRedirectResponse;
 use League\OAuth2\Server\MessageEncryption;
 use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;

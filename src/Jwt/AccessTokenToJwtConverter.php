@@ -1,13 +1,13 @@
 <?php
 
-namespace League\OAuth2\Server;
+namespace League\OAuth2\Server\Jwt;
 
 use Lcobucci\JWT\Builder;
 use Lcobucci\JWT\Signer\Key;
 use Lcobucci\JWT\Signer\Rsa\Sha256;
 use League\OAuth2\Server\Entities\Interfaces\AccessTokenEntityInterface;
 
-class AccessTokenToJwtConverter
+class AccessTokenToJwtConverter implements AccessTokenToJwtConverterInterface
 {
     /**
      * @var string

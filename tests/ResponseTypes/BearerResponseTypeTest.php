@@ -2,10 +2,10 @@
 
 namespace LeagueTests\ResponseTypes;
 
-use League\OAuth2\Server\AccessTokenToJwtConverter;
 use League\OAuth2\Server\BearerWasValidated;
 use League\OAuth2\Server\Entities\AccessTokenEntity;
 use League\OAuth2\Server\Exception\OAuthServerException;
+use League\OAuth2\Server\Jwt\AccessTokenToJwtConverter;
 use League\OAuth2\Server\Jwt\BearerTokenResponse;
 use League\OAuth2\Server\Jwt\BearerTokenValidator;
 use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;
