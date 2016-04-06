@@ -4,7 +4,7 @@ namespace LeagueTests\Grant;
 
 use League\OAuth2\Server\Entities\AccessTokenEntity;
 use League\OAuth2\Server\Grant\ClientCredentialsGrant;
-use League\OAuth2\Server\Jwt\AccessTokenToJwtConverter;
+use League\OAuth2\Server\Jwt\AccessTokenConverter;
 use League\OAuth2\Server\Jwt\BearerTokenResponse;
 use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;
 use League\OAuth2\Server\Repositories\ClientRepositoryInterface;
@@ -50,7 +50,7 @@ class ClientCredentialsGrantTest extends \PHPUnit_Framework_TestCase
         );
 
         $responseFactory = new ResponseFactory(
-            new AccessTokenToJwtConverter('file://' . __DIR__ . '/../Stubs/private.key'),
+            new AccessTokenConverter('file://' . __DIR__ . '/../Stubs/private.key'),
             $this->getMock(RendererInterface::class)
         );
 

@@ -4,7 +4,7 @@ namespace LeagueTests\Middleware;
 
 use League\OAuth2\Server\Entities\AccessTokenEntity;
 use League\OAuth2\Server\Grant\ClientCredentialsGrant;
-use League\OAuth2\Server\Jwt\AccessTokenToJwtConverter;
+use League\OAuth2\Server\Jwt\AccessTokenConverter;
 use League\OAuth2\Server\Jwt\BearerTokenValidator;
 use League\OAuth2\Server\Middleware\AuthenticationServerMiddleware;
 use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;
@@ -35,7 +35,7 @@ class AuthenticationServerMiddlewareTest extends \PHPUnit_Framework_TestCase
             $accessRepositoryMock,
             $scopeRepositoryMock,
             new ResponseFactory(
-                new AccessTokenToJwtConverter('file://' . __DIR__ . '/../Stubs/private.key'),
+                new AccessTokenConverter('file://' . __DIR__ . '/../Stubs/private.key'),
                 $this->getMock(RendererInterface::class)
             ),
             new BearerTokenValidator(
@@ -74,7 +74,7 @@ class AuthenticationServerMiddlewareTest extends \PHPUnit_Framework_TestCase
             $this->getMock(AccessTokenRepositoryInterface::class),
             $this->getMock(ScopeRepositoryInterface::class),
             new ResponseFactory(
-                new AccessTokenToJwtConverter('file://' . __DIR__ . '/../Stubs/private.key'),
+                new AccessTokenConverter('file://' . __DIR__ . '/../Stubs/private.key'),
                 $this->getMock(RendererInterface::class)
             ),
             new BearerTokenValidator(

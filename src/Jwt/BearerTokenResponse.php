@@ -26,17 +26,17 @@ class BearerTokenResponse implements ResponseTypeInterface
      */
     protected $refreshToken;
     /**
-     * @var AccessTokenToJwtConverterInterface
+     * @var AccessTokenConverterInterface
      */
     private $accessTokenToJwtConverter;
 
     /**
-     * @param AccessTokenToJwtConverterInterface  $accessTokenToJwtConverter
+     * @param AccessTokenConverterInterface  $accessTokenToJwtConverter
      * @param AccessTokenEntityInterface $accessToken
      * @param EncryptedRefreshToken      $refreshToken
      */
     public function __construct(
-        AccessTokenToJwtConverterInterface $accessTokenToJwtConverter,
+        AccessTokenConverterInterface $accessTokenToJwtConverter,
         AccessTokenEntityInterface $accessToken,
         EncryptedRefreshToken $refreshToken = null
     ) {

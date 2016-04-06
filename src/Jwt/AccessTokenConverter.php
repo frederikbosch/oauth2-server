@@ -7,12 +7,16 @@ use Lcobucci\JWT\Signer\Key;
 use Lcobucci\JWT\Signer\Rsa\Sha256;
 use League\OAuth2\Server\Entities\Interfaces\AccessTokenEntityInterface;
 
-class AccessTokenToJwtConverter implements AccessTokenToJwtConverterInterface
+class AccessTokenConverter implements AccessTokenConverterInterface
 {
     /**
      * @var string
      */
     private $privateKeyPath;
+    /**
+     * @var Builder
+     */
+    private $builder;
 
     /**
      * @param $privateKeyPath

@@ -5,7 +5,7 @@ namespace LeagueTests\Grant;
 use League\OAuth2\Server\Entities\AccessTokenEntity;
 use League\OAuth2\Server\Exception\OAuthServerException;
 use League\OAuth2\Server\Grant\ImplicitGrant;
-use League\OAuth2\Server\Jwt\AccessTokenToJwtConverter;
+use League\OAuth2\Server\Jwt\AccessTokenConverter;
 use League\OAuth2\Server\Jwt\BearerRedirectResponse;
 use League\OAuth2\Server\MessageEncryption;
 use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;
@@ -40,7 +40,7 @@ class ImplicitGrantTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->responseFactory = new ResponseFactory(
-            new AccessTokenToJwtConverter('file://' . __DIR__ . '/../Stubs/private.key'),
+            new AccessTokenConverter('file://' . __DIR__ . '/../Stubs/private.key'),
             new PlatesRenderer(
                 new Engine(__DIR__ . '/../../src/TemplateRenderer/DefaultTemplates'),
                 'login_user',

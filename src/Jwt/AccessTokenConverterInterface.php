@@ -5,7 +5,7 @@ namespace League\OAuth2\Server\Jwt;
 use Lcobucci\JWT\Builder;
 use League\OAuth2\Server\Entities\Interfaces\AccessTokenEntityInterface;
 
-interface AccessTokenToJwtConverterInterface
+interface AccessTokenConverterInterface
 {
     /**
      * @param AccessTokenEntityInterface $accessTokenEntity

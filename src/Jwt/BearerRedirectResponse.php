@@ -29,18 +29,18 @@ class BearerRedirectResponse implements ResponseTypeInterface
      */
     protected $accessToken;
     /**
-     * @var AccessTokenToJwtConverterInterface
+     * @var AccessTokenConverterInterface
      */
     private $accessTokenToJwtConverter;
 
     /**
-     * @param AccessTokenToJwtConverterInterface  $accessTokenToJwtConverter
+     * @param AccessTokenConverterInterface  $accessTokenToJwtConverter
      * @param AccessTokenEntityInterface          $accessToken
      * @param string                              $redirectUri
      * @param string                              $state
      */
     public function __construct(
-        AccessTokenToJwtConverterInterface $accessTokenToJwtConverter,
+        AccessTokenConverterInterface $accessTokenToJwtConverter,
         AccessTokenEntityInterface $accessToken,
         $redirectUri,
         $state

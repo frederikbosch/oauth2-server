@@ -1,6 +1,6 @@
 <?php
 
-namespace LeagueTests\Utils;
+namespace LeagueTests;
 
 use League\OAuth2\Server\MessageEncryption;
 

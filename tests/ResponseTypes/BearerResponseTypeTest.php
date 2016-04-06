@@ -5,7 +5,7 @@ namespace LeagueTests\ResponseTypes;
 use League\OAuth2\Server\BearerWasValidated;
 use League\OAuth2\Server\Entities\AccessTokenEntity;
 use League\OAuth2\Server\Exception\OAuthServerException;
-use League\OAuth2\Server\Jwt\AccessTokenToJwtConverter;
+use League\OAuth2\Server\Jwt\AccessTokenConverter;
 use League\OAuth2\Server\Jwt\BearerTokenResponse;
 use League\OAuth2\Server\Jwt\BearerTokenValidator;
 use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;
@@ -33,7 +33,7 @@ class BearerResponseTypeTest extends \PHPUnit_Framework_TestCase
         $accessToken->addScope($scope);
 
         $responseType = new BearerTokenResponse(
-            new AccessTokenToJwtConverter('file://' . __DIR__ . '/../Stubs/private.key'),
+            new AccessTokenConverter('file://' . __DIR__ . '/../Stubs/private.key'),
             $accessToken,
             new EncryptedRefreshToken('encrypted')
         );
@@ -66,7 +66,7 @@ class BearerResponseTypeTest extends \PHPUnit_Framework_TestCase
         $accessToken->setClient($client);
 
         $responseType = new BearerTokenResponse(
-            new AccessTokenToJwtConverter('file://' . __DIR__ . '/../Stubs/private.key'),
+            new AccessTokenConverter('file://' . __DIR__ . '/../Stubs/private.key'),
             $accessToken,
             new EncryptedRefreshToken('encrypted')
         );
@@ -114,7 +114,7 @@ class BearerResponseTypeTest extends \PHPUnit_Framework_TestCase
         $accessToken->setClient($client);
 
         $responseType = new BearerTokenResponse(
-            new AccessTokenToJwtConverter('file://' . __DIR__ . '/../Stubs/private.key'),
+            new AccessTokenConverter('file://' . __DIR__ . '/../Stubs/private.key'),
             $accessToken,
             new EncryptedRefreshToken('encrypted')
         );
@@ -152,7 +152,7 @@ class BearerResponseTypeTest extends \PHPUnit_Framework_TestCase
         $accessToken->setClient($client);
 
         $responseType = new BearerTokenResponse(
-            new AccessTokenToJwtConverter('file://' . __DIR__ . '/../Stubs/private.key'),
+            new AccessTokenConverter('file://' . __DIR__ . '/../Stubs/private.key'),
             $accessToken,
             new EncryptedRefreshToken('encrypted')
         );
