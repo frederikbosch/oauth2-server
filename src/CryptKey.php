@@ -28,10 +28,6 @@ class CryptKey
      */
     public function __construct($keyPath, $passPhrase = null)
     {
-        if (strpos($keyPath, 'file://') !== 0) {
-            $keyPath = 'file://' . $keyPath;
-        }
-
         if (!file_exists($keyPath) || !is_readable($keyPath)) {
             throw new \LogicException(sprintf('Key path "%s" does not exist or is not readable', $keyPath));
         }
